@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import { ArrowRight, Download, BarChart3 } from 'lucide-react';
 
 const Hero = () => {
