@@ -242,7 +242,8 @@ export default function Checkout() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto grid lg:grid-cols-3 gap-8">
             {/* Colonne formulaire */}
-            <form className="lg:col-span-2 bg-light p-8 rounded-xl border border-gray-100 grid gap-4" onSubmit={handleSubmit}>
+            <div className="lg:col-span-2 bg-light p-8 rounded-xl border border-gray-100">
+              <form className="grid gap-4" onSubmit={handleSubmit}>
               <h1 className="text-2xl font-bold text-text">Inscription — Bilan Carbone®</h1>
               <p className="text-gray-600">
                 Merci de compléter les informations ci-dessous. Nous vous enverrons la confirmation, la facture et le lien de connexion.
@@ -339,11 +340,6 @@ export default function Checkout() {
                 />
               </div>
 
-              <div>
-                <label className="block text-sm text-gray-600 mb-2">Mode de paiement</label>
-                <PaymentOptions />
-              </div>
-
               <label className="flex items-start gap-3 text-sm mt-2">
                 <input 
                   type="checkbox" 
@@ -367,11 +363,34 @@ export default function Checkout() {
                   {submitting ? "Traitement..." : "Valider l'inscription"}
                 </button>
               </div>
-            </form>
+              </form>
+            </div>
 
-            {/* Colonne récap */}
-            <aside className="bg-white p-6 rounded-xl border border-gray-100 h-fit">
-              <h2 className="text-xl font-semibold text-text">Récapitulatif</h2>
+            {/* Colonne paiement et récap */}
+            <aside className="bg-white p-6 rounded-xl border border-gray-100 h-fit space-y-6">
+              {/* Section Moyens de paiement - TRÈS VISIBLE */}
+              <div className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border-2 border-primary/20">
+                <h2 className="text-xl font-bold text-text mb-4 flex items-center">
+                  💳 Choisissez votre paiement
+                </h2>
+                <PaymentOptions />
+                {form.paymentMethod && (
+                  <div className="mt-4 p-3 bg-white rounded-lg border border-primary/20">
+                    <div className="text-sm text-primary font-semibold">
+                      ✓ {form.paymentMethod === 'card' ? 'Carte bancaire sélectionnée' :
+                         form.paymentMethod === 'cash' ? 'Paiement en espèces sélectionné' :
+                         form.paymentMethod === 'wire' ? 'Virement bancaire sélectionné' :
+                         form.paymentMethod === 'cheque' ? 'Paiement par chèque sélectionné' :
+                         form.paymentMethod === 'moneygram' ? 'MoneyGram sélectionné' :
+                         form.paymentMethod === 'online' ? 'Paiement Konnect sélectionné' : 'Sélectionné'}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Section Récap - plus petite */}
+              <div>
+                <h3 className="text-lg font-semibold text-text mb-3">Récapitulatif</h3>
               <ul className="mt-3 text-sm text-gray-700 space-y-2">
                 <li>Formation : <strong>Bilan Carbone®</strong></li>
                 <li>Format : en ligne (Zoom)</li>
@@ -389,18 +408,32 @@ export default function Checkout() {
                 {isTN ? <div className="text-xs text-gray-500 mt-1">TVA en sus si applicable</div> : null}
               </div>
 
-              {!isTN ? (
-                <div className="mt-4 text-xs text-gray-600">
-                  <p>Pour <strong>MoneyGram</strong>, des instructions vous seront envoyées après validation.</p>
-                  <p>Pour le <strong>paiement en ligne</strong>, vous serez redirigé vers une page sécurisée (Konnect).</p>
-                  <p>Pour la <strong>carte bancaire</strong>, vous serez redirigé vers un terminal de paiement sécurisé.</p>
-                </div>
-              ) : (
-                <div className="mt-4 text-xs text-gray-600">
-                  <p>Pour <strong>virement/chèque</strong>, les coordonnées bancaires seront transmises par email.</p>
-                  <p>Pour la <strong>carte bancaire</strong>, vous serez redirigé vers un terminal de paiement sécurisé.</p>
-                </div>
-              )}
+                {/* Infos paiement selon la méthode sélectionnée */}
+                {form.paymentMethod && (
+                  <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                    <div className="text-xs text-gray-600">
+                      {form.paymentMethod === 'card' && (
+                        <p><strong>Carte bancaire :</strong> Redirection vers terminal sécurisé</p>
+                      )}
+                      {form.paymentMethod === 'wire' && (
+                        <p><strong>Virement :</strong> Coordonnées bancaires par email</p>
+                      )}
+                      {form.paymentMethod === 'cheque' && (
+                        <p><strong>Chèque :</strong> Instructions par email</p>
+                      )}
+                      {form.paymentMethod === 'cash' && (
+                        <p><strong>Espèces :</strong> Paiement sur place</p>
+                      )}
+                      {form.paymentMethod === 'moneygram' && (
+                        <p><strong>MoneyGram :</strong> Instructions par email</p>
+                      )}
+                      {form.paymentMethod === 'online' && (
+                        <p><strong>Konnect :</strong> Redirection vers page sécurisée</p>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
             </aside>
           </div>
         </div>
