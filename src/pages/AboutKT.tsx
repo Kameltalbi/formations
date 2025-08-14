@@ -1,6 +1,7 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const AboutKTPage = () => {
   return (
@@ -126,6 +127,7 @@ const AboutKTPage = () => {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };
