@@ -183,7 +183,7 @@ export default function Checkout() {
       return <div className="text-sm text-gray-500">Détection de la région…</div>
     }
     return isTN ? (
-      <div className="grid sm:grid-cols-3 gap-2">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-2">
         <label className="flex items-center gap-2 border border-gray-200 rounded-xl p-3 cursor-pointer hover:bg-gray-50">
           <input type="radio" name="paymentMethod" value="cash" onChange={handleChange} checked={form.paymentMethod === "cash"} />
           <span>Espèces</span>
@@ -196,9 +196,13 @@ export default function Checkout() {
           <input type="radio" name="paymentMethod" value="cheque" onChange={handleChange} checked={form.paymentMethod === "cheque"} />
           <span>Chèque</span>
         </label>
+        <label className="flex items-center gap-2 border border-gray-200 rounded-xl p-3 cursor-pointer hover:bg-gray-50">
+          <input type="radio" name="paymentMethod" value="card" onChange={handleChange} checked={form.paymentMethod === "card"} />
+          <span>Carte bancaire</span>
+        </label>
       </div>
     ) : (
-      <div className="grid sm:grid-cols-2 gap-2">
+      <div className="grid sm:grid-cols-3 gap-2">
         <label className="flex items-center gap-2 border border-gray-200 rounded-xl p-3 cursor-pointer hover:bg-gray-50">
           <input type="radio" name="paymentMethod" value="moneygram" onChange={handleChange} checked={form.paymentMethod === "moneygram"} />
           <span>MoneyGram</span>
@@ -206,6 +210,10 @@ export default function Checkout() {
         <label className="flex items-center gap-2 border border-gray-200 rounded-xl p-3 cursor-pointer hover:bg-gray-50">
           <input type="radio" name="paymentMethod" value="online" onChange={handleChange} checked={form.paymentMethod === "online"} />
           <span>Paiement en ligne (Konnect)</span>
+        </label>
+        <label className="flex items-center gap-2 border border-gray-200 rounded-xl p-3 cursor-pointer hover:bg-gray-50">
+          <input type="radio" name="paymentMethod" value="card" onChange={handleChange} checked={form.paymentMethod === "card"} />
+          <span>Carte bancaire</span>
         </label>
       </div>
     )
@@ -370,10 +378,12 @@ export default function Checkout() {
                 <div className="mt-4 text-xs text-gray-600">
                   <p>Pour <strong>MoneyGram</strong>, des instructions vous seront envoyées après validation.</p>
                   <p>Pour le <strong>paiement en ligne</strong>, vous serez redirigé vers une page sécurisée (Konnect).</p>
+                  <p>Pour la <strong>carte bancaire</strong>, vous serez redirigé vers un terminal de paiement sécurisé.</p>
                 </div>
               ) : (
                 <div className="mt-4 text-xs text-gray-600">
                   <p>Pour <strong>virement/chèque</strong>, les coordonnées bancaires seront transmises par email.</p>
+                  <p>Pour la <strong>carte bancaire</strong>, vous serez redirigé vers un terminal de paiement sécurisé.</p>
                 </div>
               )}
             </aside>
