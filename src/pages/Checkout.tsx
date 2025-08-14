@@ -185,6 +185,16 @@ export default function Checkout() {
     return isTN ? (
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-2">
         <label className="flex items-center gap-2 border border-gray-200 rounded-xl p-3 cursor-pointer hover:bg-gray-50">
+          <input type="radio" name="paymentMethod" value="card" onChange={handleChange} checked={form.paymentMethod === "card"} />
+          <div className="flex items-center gap-1">
+            <span>Carte</span>
+            <div className="flex gap-1 ml-1">
+              <div className="w-6 h-4 bg-blue-600 rounded text-white text-xs flex items-center justify-center font-bold">CB</div>
+              <div className="w-6 h-4 bg-red-500 rounded text-white text-xs flex items-center justify-center font-bold">MC</div>
+            </div>
+          </div>
+        </label>
+        <label className="flex items-center gap-2 border border-gray-200 rounded-xl p-3 cursor-pointer hover:bg-gray-50">
           <input type="radio" name="paymentMethod" value="cash" onChange={handleChange} checked={form.paymentMethod === "cash"} />
           <span>Espèces</span>
         </label>
@@ -196,24 +206,29 @@ export default function Checkout() {
           <input type="radio" name="paymentMethod" value="cheque" onChange={handleChange} checked={form.paymentMethod === "cheque"} />
           <span>Chèque</span>
         </label>
-        <label className="flex items-center gap-2 border border-gray-200 rounded-xl p-3 cursor-pointer hover:bg-gray-50">
-          <input type="radio" name="paymentMethod" value="card" onChange={handleChange} checked={form.paymentMethod === "card"} />
-          <span>Carte bancaire</span>
-        </label>
       </div>
     ) : (
       <div className="grid sm:grid-cols-3 gap-2">
+        <label className="flex items-center gap-2 border border-gray-200 rounded-xl p-3 cursor-pointer hover:bg-gray-50">
+          <input type="radio" name="paymentMethod" value="card" onChange={handleChange} checked={form.paymentMethod === "card"} />
+          <div className="flex items-center gap-1">
+            <span>Carte</span>
+            <div className="flex gap-1 ml-1">
+              <div className="w-6 h-4 bg-blue-600 rounded text-white text-xs flex items-center justify-center font-bold">CB</div>
+              <div className="w-6 h-4 bg-red-500 rounded text-white text-xs flex items-center justify-center font-bold">MC</div>
+            </div>
+          </div>
+        </label>
         <label className="flex items-center gap-2 border border-gray-200 rounded-xl p-3 cursor-pointer hover:bg-gray-50">
           <input type="radio" name="paymentMethod" value="moneygram" onChange={handleChange} checked={form.paymentMethod === "moneygram"} />
           <span>MoneyGram</span>
         </label>
         <label className="flex items-center gap-2 border border-gray-200 rounded-xl p-3 cursor-pointer hover:bg-gray-50">
           <input type="radio" name="paymentMethod" value="online" onChange={handleChange} checked={form.paymentMethod === "online"} />
-          <span>Paiement en ligne (Konnect)</span>
-        </label>
-        <label className="flex items-center gap-2 border border-gray-200 rounded-xl p-3 cursor-pointer hover:bg-gray-50">
-          <input type="radio" name="paymentMethod" value="card" onChange={handleChange} checked={form.paymentMethod === "card"} />
-          <span>Carte bancaire</span>
+          <div className="flex items-center gap-1">
+            <span>Konnect</span>
+            <div className="w-8 h-4 bg-gradient-to-r from-green-500 to-blue-500 rounded text-white text-xs flex items-center justify-center font-bold">K</div>
+          </div>
         </label>
       </div>
     )
