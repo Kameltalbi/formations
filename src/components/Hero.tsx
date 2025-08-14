@@ -61,27 +61,23 @@ const Hero = () => {
           <div className="space-y-8">
             {/* Section Vidéo */}
             <div className="relative bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-              <div className="aspect-video bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-4 mx-auto shadow-lg">
-                    <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-semibold text-text mb-2">
-                    Découvrez la méthodologie Bilan Carbone®
-                  </h3>
-                  <p className="text-gray-600 text-sm">
-                    Vidéo de présentation - 3 minutes
-                  </p>
-                </div>
-              </div>
+              <video 
+                className="w-full aspect-video object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+              >
+                <source src="/video.mp4" type="video/mp4" />
+                Votre navigateur ne supporte pas la lecture vidéo.
+              </video>
               <div className="p-4 bg-white">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600">Aperçu de la formation</span>
+                  <span className="text-sm text-gray-600">Découvrez la méthodologie Bilan Carbone®</span>
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                    <span className="text-xs text-gray-500">LIVE</span>
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-xs text-gray-500">Vidéo de présentation</span>
                   </div>
                 </div>
               </div>

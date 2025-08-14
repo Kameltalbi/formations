@@ -57,30 +57,17 @@ const Footer = () => {
 
           {/* Colonne 2 - Entreprise */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Nos entreprises</h3>
-            <div className="space-y-4">
-              <div>
-                <div className="flex items-center mb-2">
-                  <Building2 className="h-5 w-5 text-primary mr-2" />
-                  <span className="font-medium">Archibat</span>
-                </div>
-                <ul className="space-y-2 ml-7">
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">À propos</a></li>
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">Services</a></li>
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">Projets</a></li>
-                </ul>
+            <h3 className="text-lg font-semibold mb-6">Notre entreprise</h3>
+            <div>
+              <div className="flex items-center mb-2">
+                <Users className="h-5 w-5 text-secondary mr-2" />
+                <span className="font-medium">KT Consulting & Co</span>
               </div>
-              <div>
-                <div className="flex items-center mb-2">
-                  <Users className="h-5 w-5 text-secondary mr-2" />
-                  <span className="font-medium">KT Consulting & Co</span>
-                </div>
-                <ul className="space-y-2 ml-7">
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">Expertise</a></li>
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">Formations</a></li>
-                  <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">Conseil</a></li>
-                </ul>
-              </div>
+              <ul className="space-y-2 ml-7">
+                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">Expertise</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">Formations</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">Conseil</a></li>
+              </ul>
             </div>
           </div>
 
@@ -160,9 +147,6 @@ const Footer = () => {
         <div className="border-t border-gray-700 pt-8 mt-12">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-4 md:mb-0">
-              <Building2 className="h-6 w-6 text-primary mr-2" />
-              <span className="font-semibold mr-4">Archibat</span>
-              <span className="text-gray-400 mr-4">×</span>
               <Users className="h-6 w-6 text-secondary mr-2" />
               <span className="font-semibold">KT Consulting & Co</span>
             </div>
