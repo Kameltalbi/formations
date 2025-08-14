@@ -33,7 +33,7 @@ const Header = () => {
             <img 
               src="/public/logo-KT-Consulting-2025.png" 
               alt="KT Consulting & Co" 
-              className="h-14 w-auto"
+              className="h-16 w-auto"
             />
           </div>
 
