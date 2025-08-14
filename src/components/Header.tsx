@@ -83,7 +83,9 @@ const Header = () => {
               onClick={() => scrollToSection('contact')}
               className="bg-accent text-white px-6 py-2 rounded-lg hover:bg-emerald-700 transition-all duration-200 transform hover:scale-105 font-semibold"
             >
-              S'inscrire
+              <Link to="/checkout" className="block">
+                S'inscrire
+              </Link>
             </button>
           </div>
 

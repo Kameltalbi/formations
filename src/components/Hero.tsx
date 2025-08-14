@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Download, BarChart3 } from 'lucide-react';
 
 const Hero = () => {
@@ -28,13 +29,13 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <button 
-                onClick={scrollToContact}
+              <Link 
+                to="/checkout"
                 className="bg-accent text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-emerald-700 transition-all duration-200 transform hover:scale-105 flex items-center justify-center group"
               >
                 S'inscrire maintenant
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
-              </button>
+              </Link>
               <button className="bg-white text-text px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition-colors duration-200 border border-gray-200 flex items-center justify-center">
                 <Download className="mr-2 h-5 w-5" />
                 Télécharger la brochure

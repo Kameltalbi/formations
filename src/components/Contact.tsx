@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
 
 const Contact = () => {
@@ -144,18 +145,12 @@ const Contact = () => {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 resize-none"
-                    placeholder="Parlez-nous de votre projet, vos objectifs, ou posez vos questions..."
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-accent text-white py-4 px-6 rounded-lg font-semibold hover:bg-emerald-700 transition-all duration-200 transform hover:scale-105 flex items-center justify-center"
+                <Link
+                  to="/checkout"
+                  className="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200"
                 >
-                  <Send className="mr-2 h-5 w-5" />
-                  Envoyer ma demande d'inscription
-                </button>
+                  S'inscrire à la formation
+                </Link>
 
                 <p className="text-sm text-gray-500 text-center">
                   * Champs obligatoires. Vos données sont protégées et ne seront jamais partagées.

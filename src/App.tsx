@@ -10,6 +10,7 @@ import SocialProof from './components/SocialProof';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import AboutKTPage from './pages/AboutKT';
+import CheckoutPage from './pages/Checkout';
 
 function HomePage() {
   return (
@@ -35,6 +36,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about-kt" element={<AboutKTPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
     </div>
   );
