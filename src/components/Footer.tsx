@@ -43,12 +43,6 @@ const Footer = () => {
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center">
-                  Brochure PDF
-                  <ExternalLink className="h-4 w-4 ml-1" />
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200">
                   Certification
                 </a>
               </li>

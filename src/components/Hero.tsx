@@ -36,10 +36,6 @@ const Hero = () => {
                 S'inscrire maintenant
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
-              <button className="bg-white text-text px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition-colors duration-200 border border-gray-200 flex items-center justify-center">
-                <Download className="mr-2 h-5 w-5" />
-                Télécharger la brochure
-              </button>
             </div>
 
             <div className="grid grid-cols-3 gap-6 text-center">
