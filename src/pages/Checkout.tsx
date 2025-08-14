@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react"
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { supabase, type Inscription } from '../lib/supabase';
 
 // --- Détection pays : TLD, fuseau, langue, IP (fallback) ---
 function getCountryFromTLD() {
@@ -133,19 +134,45 @@ export default function Checkout() {
     setSubmitting(true)
 
     try {
-      // 1) Ici : envoyer vers votre backend / Google Form / Zapier / Supabase, etc.
-      // Exemple placeholder :
-      // await fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...form, detectedRegion: country, price: unitPrice }) })
+      // Préparer les données pour Supabase
+      const inscriptionData: Omit<Inscription, 'id' | 'created_at' | 'updated_at'> = {
+        first_name: form.firstName,
+        last_name: form.lastName,
+        email: form.email,
+        phone: form.phone,
+        company: form.company || null,
+        role: form.role || null,
+        country: form.country || null,
+        notes: form.notes || null,
+        payment_method: form.paymentMethod,
+        detected_region: country,
+        price: unitPrice,
+        currency: isTN ? 'TND' : 'USD',
+        status: 'pending'
+      }
 
-      // 2) Option : rediriger directement selon le paiement
-      // if (!isTN && form.paymentMethod === "online") window.location.href = "https://votre-lien-konnect/checkout..."
-      // if (!isTN && form.paymentMethod === "moneygram") afficher instructions
+      // Insérer dans Supabase
+      const { data, error: supabaseError } = await supabase
+        .from('inscriptions')
+        .insert([inscriptionData])
+        .select()
 
-      // Simulation
-      await new Promise((res) => setTimeout(res, 800))
+      if (supabaseError) {
+        console.error('Erreur Supabase:', supabaseError)
+        throw new Error('Erreur lors de l\'enregistrement de l\'inscription')
+      }
+
+      console.log('Inscription enregistrée:', data)
       setSuccess(true)
+
+      // Optionnel : redirection selon le mode de paiement
+      // if (!isTN && form.paymentMethod === "online") {
+      //   window.location.href = "https://votre-lien-konnect/checkout..."
+      // }
+
     } catch (err) {
-      setError("Une erreur est survenue. Réessayez.")
+      console.error('Erreur:', err)
+      setError(err instanceof Error ? err.message : "Une erreur est survenue. Réessayez.")
     } finally {
       setSubmitting(false)
     }
