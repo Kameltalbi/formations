@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const FAQ = () => {
@@ -88,15 +89,12 @@ const FAQ = () => {
             <p className="text-gray-600 mb-4">
               Notre équipe est là pour vous accompagner dans votre projet de formation
             </p>
-            <button 
-              onClick={() => {
-                const element = document.getElementById('contact');
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
-              }}
+            <Link 
+              to="/checkout"
               className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors duration-200 font-semibold"
             >
-              Nous contacter
-            </button>
+              S'inscrire maintenant
+            </Link>
           </div>
         </div>
       </div>

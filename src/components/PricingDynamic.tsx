@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react"
+import { Link } from 'react-router-dom';
 
 // --- 1) Déductions locales (sans API) ---
 function getCountryFromTLD() {
@@ -125,10 +126,7 @@ export default function PricingDynamic() {
   const priceLabel = isTN ? formatDT(price) : formatUSD(price)
 
   const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Removed - now using Link to checkout
   };
 
   return (
@@ -165,12 +163,12 @@ export default function PricingDynamic() {
             </ul>
           </div>
 
-          <button 
-            onClick={scrollToContact}
+          <Link 
+            to="/checkout"
             className="w-full bg-accent text-white py-4 rounded-lg font-semibold hover:bg-emerald-700 transition-all duration-200 transform hover:scale-105"
           >
             S'inscrire maintenant
-          </button>
+          </Link>
         </>
       )}
     </div>

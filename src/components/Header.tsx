@@ -79,14 +79,12 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <button 
-              onClick={() => scrollToSection('contact')}
+            <Link 
+              to="/checkout"
               className="bg-accent text-white px-6 py-2 rounded-lg hover:bg-emerald-700 transition-all duration-200 transform hover:scale-105 font-semibold"
             >
-              <Link to="/checkout" className="block">
-                S'inscrire
-              </Link>
-            </button>
+              S'inscrire
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -142,12 +140,12 @@ const Header = () => {
                 Contact
               </button>
               <div className="px-3 pt-4">
-                <button 
-                  onClick={() => scrollToSection('contact')}
+                <Link 
+                  to="/checkout"
                   className="w-full bg-accent text-white px-6 py-2 rounded-lg hover:bg-emerald-700 transition-colors duration-200 font-semibold"
                 >
                   S'inscrire
-                </button>
+                </Link>
               </div>
             </div>
           </div>

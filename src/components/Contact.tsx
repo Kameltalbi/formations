@@ -160,7 +160,7 @@ const Contact = () => {
 
                 <Link
                   to="/checkout"
-                  className="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200"
+                  className="w-full bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200 flex items-center justify-center"
                 >
                   S'inscrire à la formation
                 </Link>
