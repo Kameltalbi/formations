@@ -340,6 +340,12 @@ export default function Checkout() {
                 />
               </div>
 
+              {/* Section Moyens de paiement dans le formulaire */}
+              <div className="mt-6">
+                <label className="block text-sm text-gray-600 mb-3">Mode de paiement</label>
+                <PaymentOptions />
+              </div>
+
               <label className="flex items-start gap-3 text-sm mt-2">
                 <input 
                   type="checkbox" 
@@ -366,31 +372,10 @@ export default function Checkout() {
               </form>
             </div>
 
-            {/* Colonne paiement et récap */}
-            <aside className="bg-white p-6 rounded-xl border border-gray-100 h-fit space-y-6">
-              {/* Section Moyens de paiement - TRÈS VISIBLE */}
-              <div className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border-2 border-primary/20">
-                <h2 className="text-xl font-bold text-text mb-4 flex items-center">
-                  💳 Choisissez votre paiement
-                </h2>
-                <PaymentOptions />
-                {form.paymentMethod && (
-                  <div className="mt-4 p-3 bg-white rounded-lg border border-primary/20">
-                    <div className="text-sm text-primary font-semibold">
-                      ✓ {form.paymentMethod === 'card' ? 'Carte bancaire sélectionnée' :
-                         form.paymentMethod === 'cash' ? 'Paiement en espèces sélectionné' :
-                         form.paymentMethod === 'wire' ? 'Virement bancaire sélectionné' :
-                         form.paymentMethod === 'cheque' ? 'Paiement par chèque sélectionné' :
-                         form.paymentMethod === 'moneygram' ? 'MoneyGram sélectionné' :
-                         form.paymentMethod === 'online' ? 'Paiement Konnect sélectionné' : 'Sélectionné'}
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Section Récap - plus petite */}
-              <div>
-                <h3 className="text-lg font-semibold text-text mb-3">Récapitulatif</h3>
+            {/* Colonne récapitulatif */}
+            <aside className="bg-white p-6 rounded-xl border border-gray-100 h-fit">
+              <h2 className="text-xl font-bold text-text mb-4">Récapitulatif</h2>
+              
               <ul className="mt-3 text-sm text-gray-700 space-y-2">
                 <li>Formation : <strong>Bilan Carbone®</strong></li>
                 <li>Format : en ligne (Zoom)</li>
@@ -406,33 +391,6 @@ export default function Checkout() {
                   </strong>
                 </div>
                 {isTN ? <div className="text-xs text-gray-500 mt-1">TVA en sus si applicable</div> : null}
-              </div>
-
-                {/* Infos paiement selon la méthode sélectionnée */}
-                {form.paymentMethod && (
-                  <div className="mt-4 p-3 bg-gray-50 rounded-lg">
-                    <div className="text-xs text-gray-600">
-                      {form.paymentMethod === 'card' && (
-                        <p><strong>Carte bancaire :</strong> Redirection vers terminal sécurisé</p>
-                      )}
-                      {form.paymentMethod === 'wire' && (
-                        <p><strong>Virement :</strong> Coordonnées bancaires par email</p>
-                      )}
-                      {form.paymentMethod === 'cheque' && (
-                        <p><strong>Chèque :</strong> Instructions par email</p>
-                      )}
-                      {form.paymentMethod === 'cash' && (
-                        <p><strong>Espèces :</strong> Paiement sur place</p>
-                      )}
-                      {form.paymentMethod === 'moneygram' && (
-                        <p><strong>MoneyGram :</strong> Instructions par email</p>
-                      )}
-                      {form.paymentMethod === 'online' && (
-                        <p><strong>Konnect :</strong> Redirection vers page sécurisée</p>
-                      )}
-                    </div>
-                  </div>
-                )}
               </div>
             </aside>
           </div>
