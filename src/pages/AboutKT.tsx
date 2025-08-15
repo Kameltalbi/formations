@@ -89,14 +89,31 @@ const AboutKTPage = () => {
                 href="https://www.carbotrack.io"
                 target="_blank"
                 rel="noreferrer"
-                className="block bg-light p-8 rounded-xl border border-gray-100 hover:shadow-lg transition-shadow duration-300"
+                className="block bg-light rounded-xl border border-gray-100 hover:shadow-lg transition-shadow duration-300 overflow-hidden"
                 aria-label="Visiter CarboTrack.io"
               >
-                <div className="aspect-[16/10] w-full bg-gradient-to-br from-primary/10 to-white rounded-xl grid place-items-center">
+                <div className="relative overflow-hidden">
+                  <img 
+                    src="/carbotrackHome.png" 
+                    alt="CarboTrack.io - Plateforme de calcul et suivi des émissions carbone" 
+                    className="w-full h-auto hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                      <span className="text-primary font-semibold">Cliquez pour visiter</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-4 bg-white">
                   <div className="text-center">
-                    <div className="mb-4 text-sm text-primary font-medium">Plateforme développée par KT Consulting</div>
-                    <div className="text-2xl font-bold text-text mb-2">CarboTrack.io</div>
-                    <div className="text-gray-600">Calculateur express • Suivi des émissions • Rapports</div>
+                    <div className="text-sm text-primary font-medium">Plateforme développée par KT Consulting</div>
+                    <div className="text-xl font-bold text-text mt-1">CarboTrack.io</div>
+                    <div className="text-gray-600 text-sm flex items-center justify-center gap-2">
+                      <span>Visiter le site</span>
+                      <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </a>
