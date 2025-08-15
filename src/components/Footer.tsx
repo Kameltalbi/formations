@@ -19,33 +19,36 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">Programme</h3>
             <ul className="space-y-3">
               <li>
-                <button 
-                  onClick={() => scrollToSection('programme')}
-                  className="text-gray-300 hover:text-white transition-colors duration-200 text-left"
+                <Link 
+                  to="/formations"
+                  className="text-gray-300 hover:text-white transition-colors duration-200 text-left block"
                 >
                   Contenu de la formation
-                </button>
+                </Link>
               </li>
               <li>
-                <button 
-                  onClick={() => scrollToSection('dates')}
-                  className="text-gray-300 hover:text-white transition-colors duration-200 text-left"
+                <Link 
+                  to="/dates-tarifs"
+                  className="text-gray-300 hover:text-white transition-colors duration-200 text-left block"
                 >
                   Dates & Tarifs
-                </button>
+                </Link>
               </li>
               <li>
-                <button 
-                  onClick={() => scrollToSection('formateur')}
-                  className="text-gray-300 hover:text-white transition-colors duration-200 text-left"
+                <Link 
+                  to="/formateur-expert"
+                  className="text-gray-300 hover:text-white transition-colors duration-200 text-left block"
                 >
                   Formateur expert
-                </button>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center">
+                <Link 
+                  to="/certification"
+                  className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center"
+                >
                   Certification
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -59,9 +62,8 @@ const Footer = () => {
                 <span className="font-medium">KT Consulting & Co</span>
               </div>
               <ul className="space-y-2 ml-7">
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">Expertise</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">Formations</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">Conseil</a></li>
+                <li><Link to="/formations" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">Formations</Link></li>
+                <li><Link to="/conseil" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">Conseil</Link></li>
               </ul>
             </div>
           </div>
@@ -71,29 +73,24 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">Informations légales</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200">
+                <Link to="/conditions-generales" className="text-gray-300 hover:text-white transition-colors duration-200">
                   Conditions générales
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200">
+                <Link to="/politique-confidentialite" className="text-gray-300 hover:text-white transition-colors duration-200">
                   Politique de confidentialité
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200">
+                <Link to="/mentions-legales" className="text-gray-300 hover:text-white transition-colors duration-200">
                   Mentions légales
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200">
-                  Politique d'annulation
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200">
+                <Link to="/accessibilite" className="text-gray-300 hover:text-white transition-colors duration-200">
                   Accessibilité
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

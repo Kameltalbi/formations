@@ -4,8 +4,8 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Audience from './components/Audience';
 import Programme from './components/Programme';
-import DatesTarifs from './components/DatesTarifs';
-import Formateur from './components/Formateur';
+import DatesTarifsComponent from './components/DatesTarifs';
+import FormateurComponent from './components/Formateur';
 import SocialProof from './components/SocialProof';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
@@ -15,6 +15,15 @@ import PlanFormationsPage from './pages/PlanFormations';
 import FormationDetailPage from './pages/FormationDetail';
 import AdminFormationsPage from './pages/AdminFormations';
 import ContactPage from './pages/Contact';
+import DatesTarifs from './pages/DatesTarifs';
+import FormateurExpert from './pages/FormateurExpert';
+import Certification from './pages/Certification';
+import Formations from './pages/Formations';
+import Conseil from './pages/Conseil';
+import ConditionsGenerales from './pages/ConditionsGenerales';
+import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite';
+import MentionsLegales from './pages/MentionsLegales';
+import Accessibilite from './pages/Accessibilite';
 import Connexion from './pages/auth/Connexion';
 import Inscription from './pages/auth/Inscription';
 import MesFormations from './pages/auth/espaceAbonne/MesFormations';
@@ -28,8 +37,8 @@ function HomePage() {
         <Hero />
         <Audience />
         <Programme />
-        <DatesTarifs />
-        <Formateur />
+        <DatesTarifsComponent />
+        <FormateurComponent />
         <SocialProof />
         <FAQ />
       </main>
@@ -49,6 +58,15 @@ function App() {
         <Route path="/formations/:slug" element={<FormationDetailPage />} />
         <Route path="/admin" element={<AdminFormationsPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/dates-tarifs" element={<DatesTarifs />} />
+        <Route path="/formateur-expert" element={<FormateurExpert />} />
+        <Route path="/certification" element={<Certification />} />
+        <Route path="/formations" element={<Formations />} />
+        <Route path="/conseil" element={<Conseil />} />
+        <Route path="/conditions-generales" element={<ConditionsGenerales />} />
+        <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+        <Route path="/mentions-legales" element={<MentionsLegales />} />
+        <Route path="/accessibilite" element={<Accessibilite />} />
         <Route path="/auth/connexion" element={<Connexion />} />
         <Route path="/auth/inscription" element={<Inscription />} />
         <Route path="/espace" element={<MesFormations />} />
