@@ -30,11 +30,13 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logos */}
           <div className="flex items-center">
-            <img 
-              src="/public/logo-KT-Consulting-2025.png" 
-              alt="KT Consulting & Co" 
-              className="h-16 w-auto"
-            />
+            <Link to="/" className="hover:opacity-80 transition-opacity duration-200">
+              <img 
+                src="/public/logo-KT-Consulting-2025.png" 
+                alt="KT Consulting & Co" 
+                className="h-16 w-auto cursor-pointer"
+              />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -45,45 +47,33 @@ const Header = () => {
             >
               À propos
             </Link>
-            <button 
-              onClick={() => scrollToSection('programme')}
+            <Link 
+              to="/formations"
               className="text-text hover:text-primary transition-colors duration-200"
             >
-              Programme
-            </button>
-            <button 
-              onClick={() => scrollToSection('dates')}
-              className="text-text hover:text-primary transition-colors duration-200"
-            >
-              Dates & Tarifs
-            </button>
-            <button 
-              onClick={() => scrollToSection('formateur')}
-              className="text-text hover:text-primary transition-colors duration-200"
-            >
-              Formateur
-            </button>
-            <button 
-              onClick={() => scrollToSection('faq')}
-              className="text-text hover:text-primary transition-colors duration-200"
-            >
-              FAQ
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
+              Plan de formations
+            </Link>
+            <Link 
+              to="/contact"
               className="text-text hover:text-primary transition-colors duration-200"
             >
               Contact
-            </button>
+            </Link>
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* CTA Buttons */}
+          <div className="hidden md:flex items-center space-x-4">
             <Link 
-              to="/checkout"
+              to="/auth/connexion"
+              className="text-accent hover:text-emerald-700 transition-colors duration-200 font-semibold"
+            >
+              Se connecter
+            </Link>
+            <Link 
+              to="/formations"
               className="bg-accent text-white px-6 py-2 rounded-lg hover:bg-emerald-700 transition-all duration-200 transform hover:scale-105 font-semibold"
             >
-              S'inscrire
+              Acheter
             </Link>
           </div>
 
@@ -109,42 +99,34 @@ const Header = () => {
               >
                 À propos
               </Link>
-              <button 
-                onClick={() => scrollToSection('programme')}
+              <Link 
+                to="/formations"
                 className="block w-full text-left px-3 py-2 text-text hover:text-primary transition-colors duration-200"
+                onClick={() => setIsMenuOpen(false)}
               >
-                Programme
-              </button>
-              <button 
-                onClick={() => scrollToSection('dates')}
+                Plan de formations
+              </Link>
+              <Link 
+                to="/contact"
                 className="block w-full text-left px-3 py-2 text-text hover:text-primary transition-colors duration-200"
-              >
-                Dates & Tarifs
-              </button>
-              <button 
-                onClick={() => scrollToSection('formateur')}
-                className="block w-full text-left px-3 py-2 text-text hover:text-primary transition-colors duration-200"
-              >
-                Formateur
-              </button>
-              <button 
-                onClick={() => scrollToSection('faq')}
-                className="block w-full text-left px-3 py-2 text-text hover:text-primary transition-colors duration-200"
-              >
-                FAQ
-              </button>
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="block w-full text-left px-3 py-2 text-text hover:text-primary transition-colors duration-200"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Contact
-              </button>
-              <div className="px-3 pt-4">
+              </Link>
+              <div className="px-3 pt-4 space-y-3">
                 <Link 
-                  to="/checkout"
-                  className="w-full bg-accent text-white px-6 py-2 rounded-lg hover:bg-emerald-700 transition-colors duration-200 font-semibold"
+                  to="/auth/connexion"
+                  className="block w-full text-center text-accent hover:text-emerald-700 transition-colors duration-200 font-semibold"
+                  onClick={() => setIsMenuOpen(false)}
                 >
-                  S'inscrire
+                  Se connecter
+                </Link>
+                <Link 
+                  to="/formations"
+                  className="w-full bg-accent text-white px-6 py-2 rounded-lg hover:bg-emerald-700 transition-colors duration-200 font-semibold block text-center"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Acheter
                 </Link>
               </div>
             </div>

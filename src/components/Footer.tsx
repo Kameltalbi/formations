@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Building2, Users, Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
 
 const Footer = () => {
@@ -100,18 +101,23 @@ const Footer = () => {
           {/* Colonne 4 - Contact & Réseaux */}
           <div>
             <h3 className="text-lg font-semibold mb-6">Contact</h3>
+            <div className="mb-4">
+              <Link to="/contact" className="text-gray-300 hover:text-white transition-colors duration-200">
+                Nous contacter
+              </Link>
+            </div>
             <div className="space-y-4 mb-6">
               <div className="flex items-center">
                 <Mail className="h-4 w-4 text-gray-400 mr-3 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">formation@archibat-kt.com</span>
+                <span className="text-gray-300 text-sm">contact@ktconsulting.info</span>
               </div>
               <div className="flex items-center">
                 <Phone className="h-4 w-4 text-gray-400 mr-3 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">+216 71 XXX XXX</span>
+                <span className="text-gray-300 text-sm">+216 55 053 505</span>
               </div>
               <div className="flex items-center">
                 <MapPin className="h-4 w-4 text-gray-400 mr-3 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">Tunis, Tunisie</span>
+                <span className="text-gray-300 text-sm">3 rue Einstein, 2036 La Soukra, Tunis</span>
               </div>
             </div>
             

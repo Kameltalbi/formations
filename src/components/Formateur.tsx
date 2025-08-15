@@ -19,7 +19,7 @@ const Formateur = () => {
           <div className="text-center lg:text-left">
             <div className="relative inline-block mb-6">
               <img
-                src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=2"
+                src="/kt photo.jpeg"
                 alt="Kamel Talbi - Formateur Bilan Carbone®"
                 className="w-64 h-64 rounded-full object-cover mx-auto lg:mx-0 shadow-xl"
               />

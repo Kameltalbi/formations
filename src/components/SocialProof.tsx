@@ -30,9 +30,9 @@ const SocialProof = () => {
     { name: 'ADEME', icon: Award },
     { name: 'ABC Bilan Carbone', icon: Building2 },
     { name: 'Institut B&L Evolution', icon: Users },
-    { name: 'Ministère Environnement', icon: Award },
     { name: 'UTICA', icon: Building2 },
-    { name: 'GIZ Tunisie', icon: Users }
+    { name: 'Startup Village', icon: Users },
+    { name: 'Tunisia Green Building Council', icon: Award }
   ];
 
   return (

@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Download, BarChart3 } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
 
 const Hero = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const formationImages = [
+    '/formation bilan carbone .jpg',
+    '/formation bilan carbone 1.jpg',
+    '/formation bilan carbone 2.jpg'
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        (prevIndex + 1) % formationImages.length
+      );
+    }, 3000); // Change d'image toutes les 3 secondes
+
+    return () => clearInterval(interval);
+  }, []);
+
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
@@ -55,60 +73,41 @@ const Hero = () => {
           </div>
 
           <div className="space-y-8">
-            {/* Section Vidéo */}
+            {/* Section Carrousel d'images */}
             <div className="relative bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-              <video 
-                className="w-full aspect-video object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-              >
-                <source src="/video.mp4" type="video/mp4" />
-                Votre navigateur ne supporte pas la lecture vidéo.
-              </video>
+              <div className="relative">
+                <img 
+                  src={formationImages[currentImageIndex]}
+                  alt={`Formation Bilan Carbone - Image ${currentImageIndex + 1}`}
+                  className="w-full aspect-video object-cover transition-opacity duration-500"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+              </div>
               <div className="p-4 bg-white">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600">Découvrez la méthodologie Bilan Carbone®</span>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-xs text-gray-500">Vidéo de présentation</span>
-                  </div>
+                <h3 className="text-lg font-semibold text-text mb-2 text-center">
+                  Images de la dernière session de fin Mai - début Juin
+                </h3>
+                <div className="flex justify-center space-x-2 mb-3">
+                  {formationImages.map((_, index) => (
+                    <div
+                      key={index}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === currentImageIndex 
+                          ? 'bg-primary w-6' 
+                          : 'bg-gray-300'
+                      }`}
+                    />
+                  ))}
+                </div>
+                <div className="text-center">
+                  <span className="text-sm text-gray-600">
+                    Défilement automatique des photos de formation
+                  </span>
                 </div>
               </div>
             </div>
 
-            {/* Section Statistiques */}
-            <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100">
-              <div className="flex items-center justify-center mb-4">
-                <BarChart3 className="h-12 w-12 text-primary" />
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600 text-sm">Scope 1 (Direct)</span>
-                  <div className="w-24 bg-gray-200 rounded-full h-2">
-                    <div className="bg-primary h-2 rounded-full w-3/4"></div>
-                  </div>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600 text-sm">Scope 2 (Énergie)</span>
-                  <div className="w-24 bg-gray-200 rounded-full h-2">
-                    <div className="bg-secondary h-2 rounded-full w-1/2"></div>
-                  </div>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600 text-sm">Scope 3 (Indirect)</span>
-                  <div className="w-24 bg-gray-200 rounded-full h-2">
-                    <div className="bg-emerald-500 h-2 rounded-full w-5/6"></div>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-4 text-center">
-                <div className="text-2xl font-bold text-text mb-1">2.5 tCO₂e</div>
-                <div className="text-xs text-gray-600">Réduction moyenne par employé</div>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
