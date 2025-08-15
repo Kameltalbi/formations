@@ -24,6 +24,7 @@ import ConditionsGenerales from './pages/ConditionsGenerales';
 import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite';
 import MentionsLegales from './pages/MentionsLegales';
 import Accessibilite from './pages/Accessibilite';
+import KonnectRetour from './pages/checkout/KonnectRetour';
 import Connexion from './pages/auth/Connexion';
 import Inscription from './pages/auth/Inscription';
 import MesFormations from './pages/auth/espaceAbonne/MesFormations';
@@ -53,7 +54,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about-kt" element={<AboutKTPage />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/checkout/:trainingId?" element={<CheckoutPage />} />
         <Route path="/formations" element={<PlanFormationsPage />} />
         <Route path="/formations/:slug" element={<FormationDetailPage />} />
         <Route path="/admin" element={<AdminFormationsPage />} />
@@ -67,6 +68,7 @@ function App() {
         <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
         <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="/accessibilite" element={<Accessibilite />} />
+        <Route path="/checkout/konnect/retour" element={<KonnectRetour />} />
         <Route path="/auth/connexion" element={<Connexion />} />
         <Route path="/auth/inscription" element={<Inscription />} />
         <Route path="/espace" element={<MesFormations />} />

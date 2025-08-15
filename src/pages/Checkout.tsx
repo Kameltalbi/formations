@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from "react"
+import { useParams, useNavigate } from 'react-router-dom'
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { supabase, type Inscription } from '../lib/supabase';
+import { KonnectService } from '../lib/konnectService';
 
 // --- Détection pays : TLD, fuseau, langue, IP (fallback) ---
 function getCountryFromTLD() {
@@ -55,8 +57,41 @@ const formatUSD = (amount: number) =>
     .format(amount)
 
 export default function Checkout() {
+  const { trainingId } = useParams<{ trainingId: string }>()
+  const navigate = useNavigate()
   const [country, setCountry] = useState<"TN" | "INTL" | "PENDING">("PENDING")
   const isTN = country === "TN"
+  const [training, setTraining] = useState<any>(null)
+  const [loadingTraining, setLoadingTraining] = useState(true)
+
+  // Charger les détails de la formation
+  useEffect(() => {
+    async function loadTraining() {
+      if (!trainingId) {
+        setError("ID de formation manquant")
+        setLoadingTraining(false)
+        return
+      }
+
+      try {
+        const { data, error } = await supabase
+          .from('plan_formations')
+          .select('*')
+          .eq('id', trainingId)
+          .single()
+
+        if (error) throw error
+        setTraining(data)
+      } catch (err) {
+        console.error('Erreur chargement formation:', err)
+        setError("Formation non trouvée")
+      } finally {
+        setLoadingTraining(false)
+      }
+    }
+
+    loadTraining()
+  }, [trainingId])
 
   useEffect(() => {
     let cancelled = false
@@ -87,8 +122,12 @@ export default function Checkout() {
     return () => { cancelled = true }
   }, [])
 
-  // Prix
-  const unitPrice = useMemo(() => (isTN ? 600 : 300), [isTN])
+  // Prix basé sur la formation et la région
+  const unitPrice = useMemo(() => {
+    if (!training) return 0
+    return isTN ? (training.prix_dt || 600) : (training.prix_usd || 300)
+  }, [training, isTN])
+  
   const unitLabel = isTN ? formatDT(unitPrice) : formatUSD(unitPrice)
 
   // Form state
@@ -134,7 +173,30 @@ export default function Checkout() {
     setSubmitting(true)
 
     try {
-      // Préparer les données pour Supabase
+      // Si paiement en ligne (Konnect), rediriger directement
+      if (form.paymentMethod === "online") {
+        if (!trainingId) {
+          throw new Error("ID de formation manquant")
+        }
+
+        // Initialiser le paiement Konnect
+        const { paymentUrl, paymentRef } = await KonnectService.initPayment(parseInt(trainingId))
+        
+        // Stocker les données du formulaire temporairement
+        localStorage.setItem('checkout_form_data', JSON.stringify({
+          ...form,
+          trainingId: parseInt(trainingId),
+          price: unitPrice,
+          currency: isTN ? 'TND' : 'USD',
+          detected_region: country
+        }))
+        
+        // Rediriger vers Konnect
+        KonnectService.redirectToPayment(paymentUrl)
+        return
+      }
+
+      // Pour les autres modes de paiement, enregistrer directement
       const inscriptionData: Omit<Inscription, 'id' | 'created_at' | 'updated_at'> = {
         first_name: form.firstName,
         last_name: form.lastName,
@@ -148,7 +210,8 @@ export default function Checkout() {
         detected_region: country,
         price: unitPrice,
         currency: isTN ? 'TND' : 'USD',
-        status: 'pending'
+        status: 'pending',
+        formation_id: trainingId ? parseInt(trainingId) : null
       }
 
       // Insérer dans Supabase
@@ -164,11 +227,6 @@ export default function Checkout() {
 
       console.log('Inscription enregistrée:', data)
       setSuccess(true)
-
-      // Optionnel : redirection selon le mode de paiement
-      // if (!isTN && form.paymentMethod === "online") {
-      //   window.location.href = "https://votre-lien-konnect/checkout..."
-      // }
 
     } catch (err) {
       console.error('Erreur:', err)
@@ -240,11 +298,33 @@ export default function Checkout() {
       
       <main className="pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto grid lg:grid-cols-3 gap-8">
+          {/* Vérification de chargement et d'erreur */}
+          {loadingTraining && (
+            <div className="text-center py-20">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+              <p className="text-gray-600">Chargement de la formation...</p>
+            </div>
+          )}
+
+          {!loadingTraining && !training && (
+            <div className="text-center py-20">
+              <div className="text-red-600 text-xl mb-4">❌ Formation non trouvée</div>
+              <p className="text-gray-600 mb-6">La formation demandée n'existe pas ou a été supprimée.</p>
+              <button 
+                onClick={() => navigate('/formations')}
+                className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors"
+              >
+                Retour aux formations
+              </button>
+            </div>
+          )}
+
+          {!loadingTraining && training && (
+            <div className="max-w-5xl mx-auto grid lg:grid-cols-3 gap-8">
             {/* Colonne formulaire */}
             <div className="lg:col-span-2 bg-light p-8 rounded-xl border border-gray-100">
               <form className="grid gap-4" onSubmit={handleSubmit}>
-              <h1 className="text-2xl font-bold text-text">Inscription — Bilan Carbone®</h1>
+              <h1 className="text-2xl font-bold text-text">Inscription — {training?.titre || 'Bilan Carbone®'}</h1>
               <p className="text-gray-600">
                 Merci de compléter les informations ci-dessous. Nous vous enverrons la confirmation, la facture et le lien de connexion.
               </p>
@@ -377,10 +457,10 @@ export default function Checkout() {
               <h2 className="text-xl font-bold text-text mb-4">Récapitulatif</h2>
               
               <ul className="mt-3 text-sm text-gray-700 space-y-2">
-                <li>Formation : <strong>Bilan Carbone®</strong></li>
-                <li>Format : en ligne (Zoom)</li>
-                <li>Horaires : sam./dim. 9h–12h (2 week-ends)</li>
-                <li>Durée totale : 12 h (4 × 3 h)</li>
+                <li>Formation : <strong>{training?.titre || 'Bilan Carbone®'}</strong></li>
+                <li>Format : {training?.format || 'en ligne (Zoom)'}</li>
+                <li>Horaires : {training?.horaires || 'sam./dim. 9h–12h (2 week-ends)'}</li>
+                <li>Durée totale : {training?.duree || '12 h (4 × 3 h)'}</li>
               </ul>
 
               <div className="mt-6 border-t pt-4">
@@ -394,6 +474,7 @@ export default function Checkout() {
               </div>
             </aside>
           </div>
+        )}
         </div>
       </main>
       
