@@ -48,10 +48,10 @@ const Header = () => {
               À propos
             </Link>
             <Link 
-              to="/formations"
+              to="/checkout"
               className="text-text hover:text-primary transition-colors duration-200"
             >
-              Plan de formations
+              S'inscrire
             </Link>
             <Link 
               to="/contact"
@@ -70,7 +70,7 @@ const Header = () => {
               Se connecter
             </Link>
             <Link 
-              to="/formations"
+              to="/checkout"
               className="bg-accent text-white px-6 py-2 rounded-lg hover:bg-emerald-700 transition-all duration-200 transform hover:scale-105 font-semibold"
             >
               Acheter
@@ -100,11 +100,11 @@ const Header = () => {
                 À propos
               </Link>
               <Link 
-                to="/formations"
+                to="/checkout"
                 className="block w-full text-left px-3 py-2 text-text hover:text-primary transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Plan de formations
+                S'inscrire
               </Link>
               <Link 
                 to="/contact"
@@ -122,7 +122,7 @@ const Header = () => {
                   Se connecter
                 </Link>
                 <Link 
-                  to="/formations"
+                  to="/checkout"
                   className="w-full bg-accent text-white px-6 py-2 rounded-lg hover:bg-emerald-700 transition-colors duration-200 font-semibold block text-center"
                   onClick={() => setIsMenuOpen(false)}
                 >

@@ -11,14 +11,18 @@ import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import AboutKTPage from './pages/AboutKT';
 import CheckoutPage from './pages/Checkout';
-import PlanFormationsPage from './pages/PlanFormations';
-import FormationDetailPage from './pages/FormationDetail';
+import CheckoutTN from './pages/CheckoutTN';
+import CheckoutIntl from './pages/CheckoutIntl';
+import PaymentTN from './pages/PaymentTN';
+import PaymentIntl from './pages/PaymentIntl';
+
+
 import AdminFormationsPage from './pages/AdminFormations';
 import ContactPage from './pages/Contact';
 import DatesTarifs from './pages/DatesTarifs';
 import FormateurExpert from './pages/FormateurExpert';
 import Certification from './pages/Certification';
-import Formations from './pages/Formations';
+
 import Conseil from './pages/Conseil';
 import ConditionsGenerales from './pages/ConditionsGenerales';
 import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite';
@@ -54,15 +58,18 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about-kt" element={<AboutKTPage />} />
-        <Route path="/checkout/:trainingId?" element={<CheckoutPage />} />
-        <Route path="/formations" element={<PlanFormationsPage />} />
-        <Route path="/formations/:slug" element={<FormationDetailPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/checkout-tn" element={<CheckoutTN />} />
+        <Route path="/checkout-intl" element={<CheckoutIntl />} />
+        <Route path="/payment-tn" element={<PaymentTN />} />
+        <Route path="/payment-intl" element={<PaymentIntl />} />
+
         <Route path="/admin" element={<AdminFormationsPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/dates-tarifs" element={<DatesTarifs />} />
         <Route path="/formateur-expert" element={<FormateurExpert />} />
         <Route path="/certification" element={<Certification />} />
-        <Route path="/formations" element={<Formations />} />
+
         <Route path="/conseil" element={<Conseil />} />
         <Route path="/conditions-generales" element={<ConditionsGenerales />} />
         <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
