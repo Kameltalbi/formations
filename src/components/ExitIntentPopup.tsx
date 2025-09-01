@@ -8,7 +8,7 @@ interface ExitIntentPopupProps {
   maxShows?: number;
 }
 
-const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isVisible, onClose, showCount = 0, maxShows = 3 }) => {
+const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isVisible, onClose, showCount = 0, maxShows = 2 }) => {
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isVisible, onClose, s
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-200 group"
+          className="absolute top-4 right-4 p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-200 group z-10"
         >
           <X className="h-4 w-4 text-gray-600 group-hover:text-gray-800" />
         </button>
@@ -87,9 +87,9 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isVisible, onClose, s
           </p>
         </div>
 
-        {/* Decorative Elements */}
-        <div className="absolute -top-4 -left-4 w-8 h-8 bg-green-300 rounded-full opacity-20"></div>
-        <div className="absolute -bottom-4 -right-4 w-6 h-6 bg-blue-300 rounded-full opacity-20"></div>
+        {/* Decorative Elements - Ajustés pour ne pas cacher le bouton */}
+        <div className="absolute -top-2 -left-2 w-6 h-6 bg-green-300 rounded-full opacity-20 z-0"></div>
+        <div className="absolute -bottom-2 -right-2 w-4 h-4 bg-blue-300 rounded-full opacity-20 z-0"></div>
       </div>
     </div>
   );
