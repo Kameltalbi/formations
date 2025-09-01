@@ -34,11 +34,13 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text mb-6 leading-tight">
-              Bilan Carbone® :{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-                La méthode
-              </span>{' '}
-              pour réduire vos émissions
+              <div className="mb-2">Bilan Carbone® :</div>
+              <div>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+                  La méthode
+                </span>{' '}
+                pour réduire vos émissions
+              </div>
             </h1>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
               Formation professionnelle certifiante pour maîtriser la méthodologie Bilan Carbone® 
