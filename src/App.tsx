@@ -9,6 +9,8 @@ import FormateurComponent from './components/Formateur';
 import SocialProof from './components/SocialProof';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import ExitIntentPopup from './components/ExitIntentPopup';
+import { useExitIntent } from './hooks/useExitIntent';
 import AboutKTPage from './pages/AboutKT';
 import CheckoutPage from './pages/Checkout';
 import CheckoutTN from './pages/CheckoutTN';
@@ -53,6 +55,8 @@ function HomePage() {
 }
 
 function App() {
+  const { showPopup, closePopup } = useExitIntent();
+
   return (
     <div className="min-h-screen">
       <Routes>
@@ -81,6 +85,9 @@ function App() {
         <Route path="/espace" element={<MesFormations />} />
         <Route path="/espace/formation/:slug" element={<FormationContenus />} />
       </Routes>
+
+      {/* Exit Intent Popup */}
+      <ExitIntentPopup isVisible={showPopup} onClose={closePopup} />
     </div>
   );
 }
