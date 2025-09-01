@@ -78,3 +78,4 @@ BEGIN
         RAISE NOTICE 'Erreur: Table payments non créée';
     END IF;
 END $$;
+

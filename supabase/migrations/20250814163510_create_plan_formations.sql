@@ -63,3 +63,4 @@ CREATE TRIGGER update_plan_formations_updated_at
   BEFORE UPDATE ON plan_formations
   FOR EACH ROW
   EXECUTE FUNCTION update_plan_formations_updated_at();
+

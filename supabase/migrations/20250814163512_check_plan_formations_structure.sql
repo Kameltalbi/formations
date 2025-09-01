@@ -72,3 +72,4 @@ BEGIN
     
     RAISE NOTICE 'Vérification terminée';
 END $$;
+

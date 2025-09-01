@@ -65,3 +65,4 @@ BEGIN
     
     RAISE NOTICE '=== Colonnes de prix vérifiées ===';
 END $$;
+

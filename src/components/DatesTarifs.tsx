@@ -45,10 +45,10 @@ const DatesTarifs = () => {
 
             <h4 className="text-lg font-semibold mt-6 mb-3 text-text">Prochaines dates</h4>
             <ul className="space-y-2 text-sm">
-              <li>✅ Séance 1 : Samedi <strong>27 septembre 2025</strong></li>
-              <li>✅ Séance 2 : Dimanche <strong>28 septembre 2025</strong></li>
-              <li>✅ Séance 3 : Samedi <strong>4 octobre 2025</strong></li>
-              <li>✅ Séance 4 : Dimanche <strong>5 octobre 2025</strong></li>
+              <li>✅ Séance 1 : Samedi <strong>11 octobre 2025</strong></li>
+              <li>✅ Séance 2 : Dimanche <strong>12 octobre 2025</strong></li>
+              <li>✅ Séance 3 : Samedi <strong>18 octobre 2025</strong></li>
+              <li>✅ Séance 4 : Dimanche <strong>19 octobre 2025</strong></li>
             </ul>
           </div>
 
