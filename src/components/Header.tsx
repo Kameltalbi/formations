@@ -32,7 +32,7 @@ const Header = () => {
           <div className="flex items-center">
             <Link to="/" className="hover:opacity-80 transition-opacity duration-200">
               <img 
-                src="/public/logo-KT-Consulting-2025.png" 
+                src="/logo-KT-Consulting-2025.png" 
                 alt="KT Consulting & Co" 
                 className="h-16 w-auto cursor-pointer"
               />
