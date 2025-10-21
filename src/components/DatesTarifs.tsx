@@ -12,7 +12,7 @@ const DatesTarifs = () => {
             Dates & Tarifs
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Formation en ligne, sur deux week-ends consécutifs, avec 4 séances interactives.
+            Formation présentielle intensive sur 2 jours au Startup Village Tunis.
           </p>
         </div>
 
@@ -27,28 +27,26 @@ const DatesTarifs = () => {
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start">
                 <span className="mr-3">📅</span>
-                <span><strong>Deux week-ends consécutifs</strong> (4 séances au total)</span>
+                <span><strong>Formation présentielle</strong> sur 2 jours consécutifs</span>
               </li>
               <li className="flex items-start">
                 <span className="mr-3">🕘</span>
-                <span><strong>Horaires :</strong> Samedi & Dimanche, 9h00–12h00 (Africa/Tunis)</span>
+                <span><strong>Horaires :</strong> 9h00–17h00 avec pauses déjeuner</span>
               </li>
               <li className="flex items-start">
-                <span className="mr-3">💻</span>
-                <span>Format en ligne (Zoom), avec 2 pauses courtes par séance</span>
+                <span className="mr-3">📍</span>
+                <span><strong>Lieu :</strong> Startup Village Tunis</span>
               </li>
               <li className="flex items-start">
                 <span className="mr-3">⏳</span>
-                <span>Durée totale : 12 heures (4 × 3h)</span>
+                <span>Durée totale : 16 heures (2 × 8h)</span>
               </li>
             </ul>
 
             <h4 className="text-lg font-semibold mt-6 mb-3 text-text">Prochaines dates</h4>
             <ul className="space-y-2 text-sm">
-              <li>✅ Séance 1 : Samedi <strong>11 octobre 2025</strong></li>
-              <li>✅ Séance 2 : Dimanche <strong>12 octobre 2025</strong></li>
-              <li>✅ Séance 3 : Samedi <strong>18 octobre 2025</strong></li>
-              <li>✅ Séance 4 : Dimanche <strong>19 octobre 2025</strong></li>
+              <li>✅ <strong>Jour 1 :</strong> Mardi <strong>19 novembre 2025</strong></li>
+              <li>✅ <strong>Jour 2 :</strong> Mercredi <strong>20 novembre 2025</strong></li>
             </ul>
           </div>
 
@@ -58,8 +56,9 @@ const DatesTarifs = () => {
 
         {/* Infos complémentaires */}
         <div className="mt-12 text-center text-sm text-gray-500">
-          <p>📨 Confirmation par email avec facture et lien Zoom.</p>
-          <p>📝 Documents fournis : supports PDF, tableurs, replays (si activés), pack de ressources.</p>
+          <p>📨 Confirmation par email avec facture et informations pratiques.</p>
+          <p>📝 Documents fournis : supports PDF, tableurs, pack de ressources, attestation de participation.</p>
+          <p>🍽️ Pauses café et déjeuner inclus dans la formation.</p>
         </div>
       </div>
     </section>

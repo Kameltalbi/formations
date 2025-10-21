@@ -48,10 +48,10 @@ export default function CheckoutTN() {
   const training = {
     title: "Formation Bilan Carbone®",
     description: "Formation professionnelle certifiante pour maîtriser la méthodologie Bilan Carbone® et accompagner votre organisation vers la neutralité carbone.",
-    price_tn: 600,
-    format: "en ligne (Zoom)",
-    horaires: "sam./dim. 9h–12h (2 week-ends)",
-    dates: "25-26 janvier 2025 et 22-23 février 2025"
+    price_tn: 500,
+    format: "présentielle",
+    horaires: "9h00–17h00 avec pauses déjeuner",
+    dates: "19 et 20 novembre 2025"
   }
 
   useEffect(() => {
@@ -84,7 +84,7 @@ export default function CheckoutTN() {
   }, [])
 
   // Prix fixe pour la Tunisie
-  const unitPrice = 600
+  const unitPrice = 500
   const unitLabel = formatDT(unitPrice)
 
   // Form state
@@ -402,7 +402,7 @@ export default function CheckoutTN() {
               <div className="bg-white p-6 rounded-xl border border-gray-100">
                 <h3 className="text-lg font-semibold text-text mb-4">Résumé du prix</h3>
                 <div className="text-3xl font-bold text-primary mb-2">{unitLabel}</div>
-                <p className="text-sm text-gray-500">TVA en sus si applicable</p>
+                <p className="text-sm text-gray-500">HT (TVA en sus si applicable)</p>
                 <p className="text-sm text-gray-600 mt-2">Attestation de formation incluse</p>
               </div>
 

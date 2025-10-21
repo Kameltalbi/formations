@@ -56,7 +56,7 @@ export default function PaymentTN() {
             </div>
             <div className="mt-3">
               <div className="font-medium text-text">Formation : Formation Bilan Carbone®</div>
-              <div className="font-medium text-primary">Prix : 600 TND</div>
+              <div className="font-medium text-primary">Prix : 500 TND HT</div>
             </div>
           </div>
 

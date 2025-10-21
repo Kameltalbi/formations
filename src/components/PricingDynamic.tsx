@@ -122,7 +122,7 @@ export default function PricingDynamic() {
   const isPending = country === "PENDING"
   const isTN = country === "TN"
 
-  const price = useMemo(() => (isTN ? 600 : 300), [isTN])
+  const price = useMemo(() => (isTN ? 500 : 300), [isTN])
   const priceLabel = isTN ? formatDT(price) : formatUSD(price)
 
   const scrollToContact = () => {
@@ -143,7 +143,7 @@ export default function PricingDynamic() {
           <p className="text-gray-600 mb-4">Prix par participant, attestation incluse :</p>
           <div className="mb-6">
             <div className="text-3xl font-bold text-primary">{priceLabel}</div>
-            {isTN ? <p className="text-sm text-gray-500">TVA en sus si applicable</p> : null}
+            {isTN ? <p className="text-sm text-gray-500">HT (TVA en sus si applicable)</p> : null}
           </div>
 
           <div className="mb-6">

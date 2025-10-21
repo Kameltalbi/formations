@@ -45,7 +45,7 @@ const Hero = () => {
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
               Formation professionnelle certifiante pour maîtriser la méthodologie Bilan Carbone® 
               et accompagner votre organisation vers la neutralité carbone. 
-              Co-organisée par Archibat et KT Consulting & Co.
+              Co-organisée par TunisiaGBC et KT Consulting & Co.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -60,8 +60,8 @@ const Hero = () => {
 
             <div className="grid grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-2xl font-bold text-primary mb-1">4</div>
-                <div className="text-sm text-gray-600">Séances intensives</div>
+                <div className="text-2xl font-bold text-primary mb-1">2</div>
+                <div className="text-sm text-gray-600">Jours intensifs</div>
               </div>
               <div>
                 <div className="text-2xl font-bold text-secondary mb-1">100%</div>
@@ -87,7 +87,7 @@ const Hero = () => {
               </div>
               <div className="p-4 bg-white">
                 <h3 className="text-lg font-semibold text-text mb-2 text-center">
-                  Images de la dernière session de fin Mai - début Juin
+                  Images de la dernière session en ligne de fin Mai - début Juin
                 </h3>
                 <div className="flex justify-center space-x-2 mb-3">
                   {formationImages.map((_, index) => (

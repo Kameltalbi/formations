@@ -5,83 +5,57 @@ const Programme = () => {
   const sessions = [
     {
       icon: BookOpen,
-      title: 'Séance 1 : Fondamentaux du Bilan Carbone®',
+      title: 'Jour 1 : Fondamentaux et méthodologie',
       objectives: [
         'Comprendre les enjeux climatiques et réglementaires',
         'Maîtriser la méthodologie Bilan Carbone®',
-        'Identifier les différents scopes d\'émissions'
+        'Identifier les différents scopes d\'émissions',
+        'Organiser la collecte de données',
+        'Utiliser les facteurs d\'émission'
       ],
       practicals: [
         'Analyse de cas concrets d\'entreprises',
         'Exercices de classification des émissions',
+        'Atelier de collecte de données réelles',
+        'Manipulation des outils de calcul',
         'Quiz interactif sur la réglementation'
       ],
       deliverables: [
         'Guide méthodologique Bilan Carbone®',
         'Modèles de tableaux de calcul',
+        'Base de données facteurs d\'émission',
         'Checklist réglementaire'
       ],
       color: 'primary'
     },
     {
-      icon: Calculator,
-      title: 'Séance 2 : Collecte et calcul des données',
-      objectives: [
-        'Organiser la collecte de données',
-        'Utiliser les facteurs d\'émission',
-        'Calculer les émissions par poste'
-      ],
-      practicals: [
-        'Atelier de collecte de données réelles',
-        'Manipulation des outils de calcul',
-        'Exercices de conversion et calculs'
-      ],
-      deliverables: [
-        'Base de données facteurs d\'émission',
-        'Outils de calcul personnalisés',
-        'Protocoles de collecte'
-      ],
-      color: 'secondary'
-    },
-    {
       icon: Target,
-      title: 'Séance 3 : Plan d\'action et réduction',
+      title: 'Jour 2 : Calcul, plan d\'action et reporting',
       objectives: [
+        'Calculer les émissions par poste',
         'Analyser les résultats du bilan',
         'Identifier les leviers de réduction',
-        'Construire un plan d\'action chiffré'
+        'Construire un plan d\'action chiffré',
+        'Rédiger le rapport Bilan Carbone®',
+        'Communiquer efficacement les résultats'
       ],
       practicals: [
+        'Exercices de conversion et calculs',
         'Atelier de priorisation des actions',
         'Simulation de scénarios de réduction',
-        'Construction de roadmaps carbone'
-      ],
-      deliverables: [
-        'Matrice de priorisation des actions',
-        'Modèles de plans d\'action',
-        'Outils de suivi des réductions'
-      ],
-      color: 'accent'
-    },
-    {
-      icon: Award,
-      title: 'Séance 4 : Reporting et communication',
-      objectives: [
-        'Rédiger le rapport Bilan Carbone®',
-        'Communiquer efficacement les résultats',
-        'Préparer la certification et le suivi'
-      ],
-      practicals: [
         'Rédaction collaborative d\'un rapport',
         'Création de supports de communication',
         'Simulation de présentation aux parties prenantes'
       ],
       deliverables: [
+        'Outils de calcul personnalisés',
+        'Matrice de priorisation des actions',
+        'Modèles de plans d\'action',
         'Template de rapport officiel',
         'Kit de communication',
         'Attestation de participation'
       ],
-      color: 'green-600'
+      color: 'secondary'
     }
   ];
 
@@ -101,10 +75,19 @@ const Programme = () => {
           <h2 className="text-3xl lg:text-4xl font-bold text-text mb-4">
             Programme de formation
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            4 séances intensives pour maîtriser tous les aspects du Bilan Carbone®, 
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
+            2 jours intensifs pour maîtriser tous les aspects du Bilan Carbone®, 
             de la théorie à la mise en pratique concrète.
           </p>
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 max-w-2xl mx-auto">
+            <h3 className="text-lg font-semibold text-text mb-3">📍 Formation présentielle</h3>
+            <p className="text-gray-700 mb-2">
+              <strong>Lieu :</strong> Startup Village Tunis
+            </p>
+            <p className="text-gray-700">
+              <strong>Dates :</strong> 19 et 20 novembre 2025
+            </p>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">

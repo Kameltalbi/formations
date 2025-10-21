@@ -21,44 +21,11 @@ export default function MesFormations() {
   useEffect(() => {
     let mounted = true;
     (async () => {
-      try {
-        // Récupérer la session utilisateur
-        const { data: { user } } = await supabase.auth.getUser();
-        if (!user) {
-          setError("Utilisateur non connecté");
-          setLoading(false);
-          return;
-        }
-
-        // Récupérer les inscriptions de l'utilisateur via la table inscriptions
-        const { data: inscriptions, error: inscriptionsError } = await supabase
-          .from('inscriptions')
-          .select('*')
-          .eq('email', user.email)
-          .eq('status', 'paid');
-
-        if (inscriptionsError) {
-          setError(inscriptionsError.message);
-          setRows([]);
-          setLoading(false);
-          return;
-        }
-
-        if (inscriptions && inscriptions.length > 0) {
-          // Pour l'instant, afficher un message indiquant que les formations sont en cours de préparation
-          // car la table inscriptions n'a pas de lien direct avec plan_formations
-          setRows([]);
-          setError("Vos formations sont en cours de préparation. Contactez-nous pour plus d'informations.");
-        } else {
-          setRows([]);
-        }
-        setLoading(false);
-      } catch (err) {
-        if (!mounted) return;
-        setError("Erreur lors du chargement des formations");
-        setRows([]);
-        setLoading(false);
-      }
+      const { data, error } = await supabase.rpc("my_trainings");
+      if (!mounted) return;
+      if (error) setError(error.message);
+      setRows((data as Training[]) || []);
+      setLoading(false);
     })();
     return () => { mounted = false; };
   }, []);

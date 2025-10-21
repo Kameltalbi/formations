@@ -49,9 +49,9 @@ export default function CheckoutIntl() {
     title: "Formation Bilan Carbone®",
     description: "Formation professionnelle certifiante pour maîtriser la méthodologie Bilan Carbone® et accompagner votre organisation vers la neutralité carbone.",
     price_usd: 300,
-    format: "en ligne (Zoom)",
-    horaires: "sam./dim. 9h–12h (2 week-ends)",
-    dates: "25-26 janvier 2025 et 22-23 février 2025"
+    format: "présentielle",
+    horaires: "9h00–17h00 avec pauses déjeuner",
+    dates: "19 et 20 novembre 2025"
   }
 
   useEffect(() => {
